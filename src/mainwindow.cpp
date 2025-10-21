@@ -77,17 +77,14 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
   QWidget *sidebar = new QWidget(top);
   QVBoxLayout *sidebarLayout = new QVBoxLayout(sidebar);
-
-  QPushButton *openDir = new QPushButton(sidebar);
-  openDir->setText("Open Directory");
-  connect(openDir, &QPushButton::pressed, this, &MainWindow::onOpenDirectoy);
-  sidebarLayout->addWidget(openDir);
+  sidebarLayout->setContentsMargins(0, 0, 0, 0);
 
   QPushButton *openSettings = new QPushButton(sidebar);
   openSettings->setText("Open Settings");
   connect(openSettings, &QPushButton::pressed, this, [this]() {
-    SettingsWindow *settingsWindow = new SettingsWindow(
-        settings->value("theme", "dracula.qss").toString(), this);
+    SettingsWindow *settingsWindow =
+        new SettingsWindow(settings->value("theme", "dracula.qss").toString(),
+                           rootDir.absolutePath(), this);
 
     connect(settingsWindow, &SettingsWindow::themeChanged, this,
             [this](const QString &theme) {
@@ -98,6 +95,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
                 settings->setValue("theme", theme);
               }
             });
+
+    connect(settingsWindow, &SettingsWindow::directoryChanged, this,
+            &MainWindow::loadDirectory);
 
     settingsWindow->setAttribute(Qt::WA_ShowModal);
     settingsWindow->setAttribute(Qt::WA_DeleteOnClose);
@@ -130,8 +130,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
 
   songList = new QListWidget(top);
   songList->setSelectionMode(QAbstractItemView::SingleSelection);
-  songList->setSpacing(2);
-  songList->setContentsMargins(4, 8, 4, 8);
+  songList->setContentsMargins(0, 0, 0, 0);
 
   connect(songList, &QListWidget::currentTextChanged, this,
           &MainWindow::onSongChanged);
@@ -144,7 +143,6 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
   controls = new QWidget(main);
 
   QVBoxLayout *controlsLayout = new QVBoxLayout(controls);
-  controlsLayout->setSpacing(4);
   controlsLayout->setContentsMargins(8, 8, 8, 8);
 
   QWidget *firstControls = new QWidget(controls);
@@ -153,6 +151,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
   firstControlsLayout->setContentsMargins(0, 0, 0, 0);
 
   autoplay = new QCheckBox("Autoplay", firstControls);
+  autoplay->setChecked(settings->value("autoplay", true).toBool());
 
   //
 
@@ -275,12 +274,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
   }
 }
 
-void MainWindow::onOpenDirectoy() {
-  QString directoryPath = QFileDialog::getExistingDirectory(
-      nullptr, "Select Directory", QDir::homePath());
-
-  loadDirectory(directoryPath);
-}
+void MainWindow::onOpenDirectoy() {}
 
 void MainWindow::loadDirectory(const QString &directoryPath) {
   rootDir = QDir(directoryPath);

@@ -2,8 +2,10 @@
 
 #include <QComboBox>
 #include <QDialog>
+#include <QFileDialog>
 #include <QFormLayout>
 #include <QHeaderView>
+#include <QPushButton>
 #include <QTableWidget>
 #include <QWidget>
 #include <qapplication.h>
@@ -17,8 +19,10 @@
 class SettingsWindow : public QDialog {
   Q_OBJECT
 public:
-  SettingsWindow(const QString &currentTheme, QWidget *parent = nullptr);
+  SettingsWindow(const QString &currentTheme, const QString &currentDir,
+                 QWidget *parent = nullptr);
 
 signals:
   QString themeChanged(const QString &theme);
+  QString directoryChanged(const QString &path);
 };
