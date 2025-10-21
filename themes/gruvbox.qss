@@ -1,0 +1,113 @@
+/* GruBox theme - dark, warm, earthy */
+QWidget {
+  background-color: #0E0F11;
+  color: #E6E6E6;
+  font-family: "Segoe UI", "Roboto", "Arial";
+  font-size: 12px;
+}
+
+/* Main container and header */
+QWidget#MainWindow {
+  background-color: #111214;
+  border-radius: 8px;
+}
+
+/* Labels / headings */
+QLabel.title {
+  font-weight: 600;
+  font-size: 14px;
+  color: #F3F0EA;
+}
+QLabel.small {
+  color: #BDB6AA;
+  font-size: 11px;
+}
+
+/* Playlist (QListView / QTableView) */
+QListView, QTableView {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  outline: none;
+}
+QListView::item, QTableView::item {
+  padding: 10px 8px;
+  border-radius: 6px;
+  margin: 2px 0;
+}
+QListView::item:hover, QTableView::item:hover {
+  background: rgba(255,255,255,0.02);
+}
+QListView::item:selected, QTableView::item:selected {
+  background: rgba(84,103,77,0.20);
+  color: #FFF;
+}
+
+/* Playback buttons */
+QPushButton.play, QToolButton.play {
+  background: #7AB77F;
+  color: #0B0B0B;
+  border-radius: 18px;
+  min-width: 36px;
+  min-height: 36px;
+  font-weight: 700;
+  border: none;
+}
+QPushButton.play:pressed, QToolButton.play:pressed { transform: translate(0,1px); }
+
+/* Other control buttons */
+QPushButton, QToolButton {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: #E6E6E6;
+}
+QPushButton:hover, QToolButton:hover {
+  background: rgba(255,255,255,0.02);
+}
+QPushButton:flat, QToolButton:flat { border: none; }
+
+/* Sliders (position & volume) */
+QSlider::groove:horizontal {
+  height: 6px;
+  background: rgba(255,255,255,0.04);
+}
+QSlider::sub-page:horizontal {
+  background: #7AB77F;
+  border-radius: 3px;
+}
+QSlider::handle:horizontal {
+  background: #FFF;
+  width: 12px;
+  height: 12px;
+  margin: -3px 0px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.5);
+}
+
+/* Scrollbars */
+QScrollBar:vertical {
+  background: transparent;
+  width: 10px;
+  margin: 12px 0 12px 0;
+}
+QScrollBar::handle:vertical {
+  background: rgba(255,255,255,0.06);
+  min-height: 20px;
+  border-radius: 5px;
+}
+QScrollBar::add-line, QScrollBar::sub-line { height: 0; }
+
+/* Search box / input */
+QLineEdit#SearchBox {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: #EDEBE6;
+}
+QLineEdit#SearchBox:focus {
+  border: 1px solid #7AB77F;
+  background: rgba(122,183,127,0.04);
+}

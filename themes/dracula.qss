@@ -1,0 +1,105 @@
+/* Dracula theme - dark purple */
+QWidget {
+  background-color: #0B0E14;
+  color: #F8F8F2;
+  font-family: "Roboto", "Segoe UI", "Arial";
+  font-size: 12px;
+}
+
+/* Main */
+QWidget#MainWindow {
+  background: #0c0f16;
+  border-radius: 8px;
+}
+
+/* Labels */
+QLabel.title {
+  font-weight: 700;
+  color: #F8F8F2;
+}
+QLabel.small {
+  color: #9AA0A6;
+}
+
+/* Playlist */
+QListView, QTableView {
+  background: transparent;
+  border: none;
+}
+QListView::item, QTableView::item {
+  padding: 10px 8px;
+  margin: 3px 0;
+  border-radius: 6px;
+}
+QListView::item:hover, QTableView::item:hover {
+  background: rgba(255,255,255,0.02);
+}
+QListView::item:selected, QTableView::item:selected {
+  background:#6272A4;
+  color: #F8F8F2;
+}
+
+/* Playback buttons */
+QPushButton.play, QToolButton.play {
+  background: #50FA7B;
+  color: #0A0A0A;
+  border-radius: 20px;
+  min-width: 38px;
+  min-height: 38px;
+  font-weight: 800;
+  border: none;
+}
+
+/* Other control buttons */
+QPushButton, QToolButton {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 6px 8px;
+  border-radius: 6px;
+  color: #F8F8F2;
+}
+QPushButton:hover, QToolButton:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+/* Sliders */
+QSlider::groove:horizontal {
+  height: 6px;
+  background: rgba(255,255,255,0.03);
+}
+QSlider::sub-page:horizontal {
+  background: #BD93F9;
+  border-radius: 3px;
+}
+QSlider::handle:horizontal {
+  background: #F8F8F2;
+  width: 12px;
+  height: 12px;
+  margin: -3px 0px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.5);
+}
+
+/* Scrollbars */
+QScrollBar:vertical {
+  background: transparent;
+  width: 10px;
+}
+QScrollBar::handle:vertical {
+  background: rgba(255,255,255,0.06);
+  min-height: 20px;
+  border-radius: 5px;
+}
+
+/* Search box */
+QLineEdit#SearchBox {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  border-radius: 8px;
+  padding: 6px 10px;
+  color: #ECEFF4;
+}
+QLineEdit#SearchBox:focus {
+  border: 1px solid #BD93F9;
+  background: rgba(189,147,249,0.03);
+}

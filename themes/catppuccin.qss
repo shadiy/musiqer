@@ -1,0 +1,127 @@
+/* Light Catppuccin - soft pastel light theme */
+QWidget {
+  background-color: #eff1f5;
+  color: #4c4f69;
+  font-family: "Inter", "Segoe UI", "Arial";
+  font-size: 13px;
+}
+
+/* Main */
+QWidget#MainWindow {
+  background: #eff1f5;
+  border-radius: 10px;
+}
+
+/* Labels */
+QLabel.title {
+  font-weight: 700;
+  color: #4c4f69;
+}
+QLabel.small {
+  color: #4c4f69;
+  font-size: 11px;
+}
+
+/* Playlist */
+QListView, QTableView {
+  background: transparent;
+  border: none;
+  padding: 6px;
+}
+QListView::item, QTableView::item {
+  padding: 10px 8px;
+  border-radius: 8px;
+  margin: 4px 0;
+}
+QListView::item:hover, QTableView::item:hover {
+  background: #F0EFFF;
+}
+QListView::item:selected, QTableView::item:selected {
+  background: #EED8FF;
+  color: #1B1120;
+}
+
+/* Playback buttons */
+QPushButton#play, QToolButton.play {
+  background: transparent;
+  color: #8839ef;
+  border-radius: 18px;
+  min-width: 36px;
+  min-height: 36px;
+  border: none;
+  font-weight: 700;
+  font-size: 22px;
+}
+QPushButton#play:hover {
+  color: #8839ef;
+}
+QPushButton#play:pressed {
+  color: #8839ef;
+}
+
+/* Other control buttons */
+QPushButton, QToolButton {
+  background: #ccd0da;
+  border: 1px solid #EFEAF2;
+  padding: 6px 8px;
+  border-radius: 8px;
+}
+QPushButton:hover, QToolButton:hover {
+  background-color: #9ca0b0;
+}
+QPushButton:pressed, QToolButton:pressed {
+  background-color: #7c7f93;
+}
+QPushButton:disabled, QToolButton:disabled {
+  background-color: #dce0e8;
+}
+
+/* Sliders */
+QSlider::groove:horizontal {
+  height: 6px;
+  background: #8c8fa1;
+}
+QSlider::sub-page:horizontal {
+  background: #8839ef;
+}
+QSlider::handle:horizontal {
+  background: #ccd0da;
+  width: 10px;
+  height: 10px;
+  margin: -3px 0px;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.5);
+}
+QSlider::handle:horizontal:hover {
+  background-color: #acb0be
+}
+
+
+/* Scroll Bars */
+QScrollBar:vertical {
+    border: none;
+    background: #eff1f5;
+    width: 10px;
+    margin: 15px 0 15px 0;
+}
+QScrollBar::handle:vertical {
+    background: #9ca0b0;
+    min-height: 20px;
+    border-radius: 5px;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    background: none;
+}
+
+/* Search box */
+QLineEdit#SearchBox {
+  background: #FFFFFF;
+  border: 1px solid #EDE7EE;
+  border-radius: 10px;
+  padding: 8px 10px;
+  color: #2C2C33;
+}
+QLineEdit#SearchBox:focus {
+  border: 1px solid #FFA8D6;
+  box-shadow: none;
+}
